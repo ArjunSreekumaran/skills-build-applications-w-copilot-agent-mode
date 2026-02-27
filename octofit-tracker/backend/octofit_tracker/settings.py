@@ -28,6 +28,14 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+# Support codespace URL and localhost
+import os
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME', 'localhost')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    f'{CODESPACE_NAME}-8000.app.github.dev',
+]
 # Application definition
 
 INSTALLED_APPS = [
